@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto:ital,wght@1,300&display=swap"
+    rel="stylesheet">
+<!-- font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif; -->
+<style>
+    * {
+
+        padding: 2px;
+        margin: 0px;
+    }
+
+    .definition {
+        border: 2px solid rgba(0, 0, 0, 0.532);
+        color: rgb(208, 82, 59);
+        font-weight: bolder;
+        border-radius: 5px;
+    }
+
+    h1 {
+        font-family: 'Poppins', sans-serif;
+        color: rgb(91, 91, 249);
+    }
+
+    h4 {
+        font-weight: bolder;
+        font-size: 25px;
+        text-align: center;
+        border-bottom: 2px solid rgb(249, 149, 149);
+        background-color: rgb(228, 179, 179);
+        border-bottom: dotted;
+    }
+
+    h3 {
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .calculator {
+        display: flex;
+        color: blue;
+        flex-flow: row;
+        flex-wrap: wrap;
+    }
+
+    .cal {
+        border: 2px solid rgb(112, 105, 105);
+        border-radius: 8px;
+        height: 320px;
+        width: 250px;
+        display: flex;
+        position: relative;
+        justify-items: center;
+        top: 80px;
+        left: 300px;
+        float: right;
+        flex-wrap: wrap;
+        background-color: rgb(228, 179, 179);
+    }
+
+    label {
+        position: relative;
+        left: 80px;
+        background-color: rgb(228, 179, 179);
+        color: rgb(3, 3, 3);
+        font-size: 20px;
+        font-weight: 1000;
+        margin-bottom: -15px;
+        white-space: pre;
+    }
+
+    input {
+        color: black;
+        border: 3px solid rgba(91, 78, 78, 0.084);
+        border-radius: 5px;
+        height: 20px;
+        width: 200px;
+        margin-bottom: 10px;
+        padding: 8px;
+        margin: 20px;
+    }
+
+    button {
+        color: #fdfbfb;
+        background-color: blue;
+        border: 1px solid blue;
+        height: 35px;
+        width: 80px;
+        border-radius: 15px;
+        position: relative;
+        left: 80px;
+        bottom: 10px;
+        font-size: 15px;
+        font-weight: 800;
+    }
+
+    .celsisus {
+        position: relative;
+        right: 25px;
+    }
+
+    p {
+        font-family: 'Poppins', sans-serif;
+    }
+</style>
+
+<body>
+    <div class="content">
+        <h1 style="text-align: center; ">Welcome To Temperature Conversion Calculator</h1>
+        <h3> <span>Definition of Fahrenheit and Celsius</span></h3>
+        <p>In the Fahrenheit scale, water freezes at 32 degrees, and boils at 212 degrees. Boiling and freezing point
+            are therefore 180 degrees apart. Normal body temperature is considered to be 98.6 °F (in real-life it
+            fluctuates around this value). Absolute zero is defined as -459.67°F.
+            <br>The Celsius scale is nowadays set in such a way that Zero degrees C is the temperature at which ice
+            melts
+            (note : not the temperature at which it freezes, which is different!) . At the other end of the scale, 100
+            degrees Celsius is the boiling point of water.
+        </p>
+        <p class="definition">The scientific definition of Celsius is now defined against degrees Kelvin. Zero degrees
+            Celsius is 273.15K.
+            One degree Celsius is equal to one Kelvin, so we can say that the boiling point of water is equal to 273.15
+            + 100 = 373.15 Kelvin.</p>
+    </div>
+    <div class="calculator">
+        <img src="https://static.javatpoint.com/math/images/fahrenheit-to-celsius.png" alt="">
+        <div class="cal">
+            <h4>Temperature Conversion Calculator</h4>
+            <label for="celsius" class="celsisus"> Celsius</label>
+            <input type="number" name="" id="celsius" placeholder="Enter the temperature in celsius">
+            <label for="Fahrenheit">Fahrenheit</label>
+            <input type="number" name="" id="Fahrenheit" placeholder="Enter temperature in fahrenheit">
+            <button id="convet">Convert</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const celsiusInput = document.getElementById("celsius");
+            const fahrenheitInput = document.getElementById("Fahrenheit");
+            const convertButton = document.getElementById("convet");
+
+            convertButton.addEventListener("click", function () {
+                const celsiusValue = parseFloat(celsiusInput.value);
+                const fahrenheitValue = parseFloat(fahrenheitInput.value);
+
+                if (!isNaN(celsiusValue)) {
+                    const fahrenheitResult = (celsiusValue * 9 / 5) + 32;
+                    fahrenheitInput.value = fahrenheitResult.toFixed(2);
+                }
+
+                if (!isNaN(fahrenheitValue)) {
+                    const celsiusResult = (fahrenheitValue - 32) * 5 / 9;
+                    celsiusInput.value = celsiusResult.toFixed(2);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
